@@ -5,7 +5,6 @@ namespace Bican\Roles\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Bican\Roles\Exceptions\RoleDeniedException;
-use Illuminate\Support\Facades\Auth;
 
 class VerifyRole
 {
@@ -22,7 +21,7 @@ class VerifyRole
      */
     public function __construct(Guard $auth)
     {
-        $this->auth = Auth::user();
+        $this->auth = $auth;
     }
 
     /**

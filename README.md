@@ -294,23 +294,23 @@ if ($user->allowed('edit.articles', $article, false)) { // now owner check is di
 There are four Blade extensions. Basically, it is replacement for classic if statements.
 
 ```php
-@role('admin') // @if(Auth::user()->check() && Auth::user()->is('admin'))
+@role('admin') // @if(Auth::check() && Auth::user()->is('admin'))
     // user is admin
 @endrole
 
-@permission('edit.articles') // @if(Auth::user()->check() && Auth::user()->can('edit.articles'))
+@permission('edit.articles') // @if(Auth::check() && Auth::user()->can('edit.articles'))
     // user can edit articles
 @endpermission
 
-@level(2) // @if(Auth::user()->check() && Auth::user()->level() >= 2)
+@level(2) // @if(Auth::check() && Auth::user()->level() >= 2)
     // user has level 2 or higher
 @endlevel
 
-@allowed('edit', $article) // @if(Auth::user()->check() && Auth::user()->allowed('edit', $article))
+@allowed('edit', $article) // @if(Auth::check() && Auth::user()->allowed('edit', $article))
     // show edit button
 @endallowed
 
-@role('admin|moderator', 'all') // @if(Auth::user()->check() && Auth::user()->is('admin|moderator', 'all'))
+@role('admin|moderator', 'all') // @if(Auth::check() && Auth::user()->is('admin|moderator', 'all'))
     // user is admin and also moderator
 @else
     // something else
